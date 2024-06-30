@@ -13,8 +13,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan("dev"));
 
-let expenses = [];
-
 //route concerning expenses
 app.use("/expenses/", expenseRouter)
 
