@@ -1,11 +1,17 @@
 import express from "express";
 
+import Expense from "../models/Expense.js";
+
 const expenseRouter = express.Router();
 
-expenseRouter.post("/expenses/new", (req, res) => {
+expenseRouter.post("/new", (req, res) => {
     const { date, amount, category, description } = req.body;
 
-    expenses.push({ date, amount, category, description });
+    
+
+    const newExpense = new Expense({ date, amount, category, description })
+
+    newExpense.save();
 
     res.send("Successfully added!");
 });
